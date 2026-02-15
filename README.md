@@ -25,7 +25,7 @@ Memory Map is an interactive web application designed to help travelers document
 
 1.  **Clone the repository**:
     ```bash
-    git clone [https://github.com/your-username/Memory-Map.git](https://github.com/your-username/Memory-Map.git)
+    git clone [[https://github.com/your-username/Memory-Map.git](https://github.com/your-username/Memory-Map.git)](https://github.com/KrishMiyani13/FSD-Project_SEM-III/tree/main)
     ```
 2.  **Open the project**: Open `Login/login.html` or `Map/index.html` in any modern web browser.
 3.  **Search or Click**: Use the search bar to find a city or simply click on the map to start adding memories.
