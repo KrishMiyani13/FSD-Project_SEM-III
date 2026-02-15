@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 </head>
 <body class="bg-dark text-light">
 
@@ -20,14 +22,14 @@
             </a>
 
             <div class="d-flex flex-grow-1 justify-content-center align-items-center gap-3 mx-4" style="max-width: 600px;">
-            <form class="d-flex w-100" style="max-width: 400px;">
-                <div class="input-group">
-                    <input class="form-control rounded-start-pill border-0" type="search" placeholder="Search cities or states..." aria-label="Search">
-                    <button class="btn btn-light rounded-end-pill border-0" type="submit">
-                        <i data-lucide="search" class="size-sm"></i>
-                    </button>
-                </div>
-            </form>
+            <form id="navSearchForm" class="d-flex w-100" style="max-width: 400px;">
+    <div class="input-group">
+        <input id="navSearchInput" class="form-control rounded-start-pill border-0" type="search" placeholder="Search cities or states..." aria-label="Search">
+        <button class="btn btn-light rounded-end-pill border-0" type="submit">
+            <i data-lucide="search" class="size-sm"></i>
+        </button>
+    </div>
+</form>
             
             <button id="navAddMemoryBtn" class="btn btn-light fw-bold px-3 rounded-pill d-flex align-items-center gap-1" style="color: brown; white-space: nowrap;">
                 <i data-lucide="plus" class="size-sm"></i> Add Memory
@@ -122,7 +124,6 @@
             </div>
         </div>
     </div>
-    
     
 <!-- add memory modal -->
 <div class="modal fade" id="addMemoryModal" tabindex="-1" aria-hidden="true">
