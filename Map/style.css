@@ -78,14 +78,16 @@ body, html {
 }
 
 .visited-item {
-    background-color: #d4edda !important; 
-    color: #155724 !important;
+    background-color: #d4edda !important; /* Light green background */
+    color: #155724 !important;            /* Dark green text */
     font-weight: bold;
+    border-radius: 5px;
 }
 
 .visited-header {
-    background-color: #c3e6cb !important; 
+    background-color: #c3e6cb !important;
     color: #155724 !important;
+    font-weight: bold;
 }
 
 #addMemoryModal .form-label, 
