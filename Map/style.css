@@ -96,7 +96,34 @@ body, html {
     display: block;
     margin-bottom: 0.5rem;
 }
+/* --- NEW GALLERY STYLES --- */
+.memory-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    transition: transform 0.2s ease;
+}
 
+.memory-card:hover {
+    transform: translateY(-3px);
+}
+
+.memory-media {
+    height: 200px; /* Fixed height for gallery look */
+    object-fit: cover;
+    width: 100%;
+}
+
+#memoriesContainer {
+    max-height: 450px; /* Allows scrolling if many memories exist */
+    overflow-y: auto;
+}
+
+.delete-mem-btn {
+    border-radius: 8px;
+    padding: 5px 8px;
+}
 
 #addMemoryModal .form-control {
     border: 1px solid #ced4da !important;
