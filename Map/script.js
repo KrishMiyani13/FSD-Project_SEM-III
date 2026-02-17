@@ -348,6 +348,76 @@ function highlightVisitedLocations() {
         }
     });
 }
+// === NEW: GALLERY VIEW AND DELETE LOGIC ===
+
+// 1. Function to render the memories as a gallery
+document.getElementById('showNearbyMemories').onclick = () => {
+    const lat = selectedPosition.lat;
+    const lng = selectedPosition.lng;
+    
+    // Filter memories within 5km radius
+    const nearbyMemories = locations.filter(loc => getDistance(lat, lng, loc.lat, loc.lng) <= 5);
+    
+    const container = document.getElementById('memoriesContainer');
+    container.innerHTML = ''; 
+
+    if (nearbyMemories.length === 0) {
+        container.innerHTML = '<p class="text-center text-muted p-4">No memories found within 5km of this spot.</p>';
+    } else {
+        nearbyMemories.forEach(mem => {
+            const card = document.createElement('div');
+            card.className = 'memory-card shadow-sm mb-3';
+            card.innerHTML = `
+                ${mem.photoUrl ? `<img src="${mem.photoUrl}" class="memory-media" alt="Memory">` : ''}
+                <div class="p-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="fw-bold mb-1" style="color: brown;">${mem.title}</h5>
+                        <button class="btn btn-outline-danger btn-sm delete-mem-btn" data-id="${mem.id}">
+                            <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+                        </button>
+                    </div>
+                    <p class="small text-muted mb-2">${new Date(mem.createdAt).toLocaleDateString()}</p>
+                    <p class="mb-0 text-dark">${mem.description}</p>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        lucide.createIcons(); // Refresh icons for the new delete buttons
+    }
+
+    // Toggle the modal views
+    document.getElementById('optionsView').classList.add('d-none');
+    document.getElementById('memoriesListView').classList.remove('d-none');
+    document.getElementById('backBtn').classList.remove('d-none');
+    document.getElementById('modalTitle').innerText = "Area Memories";
+
+    // Attach click events to the new delete buttons
+    document.querySelectorAll('.delete-mem-btn').forEach(btn => {
+        btn.onclick = (e) => {
+            const memoryId = parseInt(e.currentTarget.getAttribute('data-id'));
+            deleteMemory(memoryId);
+        };
+    });
+};
+
+// 2. Function to handle memory deletion
+function deleteMemory(id) {
+    if (confirm("Are you sure you want to delete this memory? This cannot be undone.")) {
+        // Remove from the local array used for the map
+        locations = locations.filter(loc => loc.id !== id);
+        
+        // Update the browser's Local Storage
+        const allMemories = JSON.parse(localStorage.getItem('user_memories')) || [];
+        const updatedMemories = allMemories.filter(m => m.id !== id);
+        localStorage.setItem('user_memories', JSON.stringify(updatedMemories));
+        
+        // Refresh the map pins and close the modal to show changes
+        renderPins(); 
+        highlightVisitedLocations();
+        memoryModal.hide();
+        alert("Memory deleted! 🗑️");
+    }
+}
 
 // Event Listeners
 document.getElementById('navAddMemoryBtn').onclick = () => addMemoryModal.show();
