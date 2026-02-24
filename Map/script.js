@@ -114,7 +114,7 @@ function handleInteraction(lat, lng) {
         color: '#3B82F6',
         fillColor: '#3B82F6',
         fillOpacity: 0.1,
-        radius: 5000,
+        radius: 7000,
         dashArray: '5, 10'
     }).addTo(map);
 
