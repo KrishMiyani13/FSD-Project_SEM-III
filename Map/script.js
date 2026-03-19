@@ -114,7 +114,7 @@ function handleInteraction(lat, lng) {
         color: '#3B82F6',
         fillColor: '#3B82F6',
         fillOpacity: 0.1,
-        radius: 7000,
+        radius: 5000,
         dashArray: '5, 10'
     }).addTo(map);
 
@@ -315,11 +315,11 @@ async function zoomToLocation(locationName) {
 }
 
 function highlightVisitedLocations() {
-    // 1. Clear all existing highlights for cities and states
+    
     document.querySelectorAll('.city-click').forEach(el => el.classList.remove('visited-item'));
     document.querySelectorAll('.state-click').forEach(el => el.classList.remove('visited-header'));
 
-    // 2. Loop through your local memories
+    
     locations.forEach(loc => {
         if (loc.city) {
             // Find and highlight the specific city
@@ -327,7 +327,7 @@ function highlightVisitedLocations() {
             if (cityElement) {
                 cityElement.classList.add('visited-item');
                 
-                // 3. Highlight the parent State Header
+                
                 // We find the nearest accordion-item and then the button inside the header
                 const accordionItem = cityElement.closest('.accordion-item');
                 if (accordionItem) {
@@ -350,7 +350,7 @@ function highlightVisitedLocations() {
 }
 // === NEW: GALLERY VIEW AND DELETE LOGIC ===
 
-// 1. Function to render the memories as a gallery
+
 document.getElementById('showNearbyMemories').onclick = () => {
     const lat = selectedPosition.lat;
     const lng = selectedPosition.lng;
@@ -400,7 +400,7 @@ document.getElementById('showNearbyMemories').onclick = () => {
     });
 };
 
-// 2. Function to handle memory deletion
+
 function deleteMemory(id) {
     if (confirm("Are you sure you want to delete this memory? This cannot be undone.")) {
         // Remove from the local array used for the map
@@ -480,12 +480,12 @@ document.getElementById('navSearchForm').addEventListener('submit', async (e) =>
     const query = document.getElementById('navSearchInput').value;
     if (!query) return;
 
-    // 1. Get current map center or live location for the 60km bias
+    
     const currentCenter = map.getCenter();
     const lat = currentCenter.lat;
     const lng = currentCenter.lng;
 
-    // 2. Define a bounding box roughly 60km around the center
+    
     // (Roughly 0.54 degrees of lat/lng is ~60km)
     const offset = 0.54; 
     const viewbox = `${lng - offset},${lat + offset},${lng + offset},${lat - offset}`;
@@ -518,5 +518,9 @@ document.getElementById('navSearchForm').addEventListener('submit', async (e) =>
         console.error("Search error:", error);
     }
 });
+function fun(){
+    src = "../Login/login.html";
+    window.location.href = src;    
+}
 
 initMap();
