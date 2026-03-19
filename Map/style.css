@@ -129,3 +129,12 @@ body, html {
     border: 1px solid #ced4da !important;
     color: #000 !important;
 }
+
+#stateOffcanvas{
+    margin-top: 60px;
+}
+#stateOffcanvasLabel{
+    color: brown;
+    font-weight: bolder;
+    font-size: 30px;
+}
