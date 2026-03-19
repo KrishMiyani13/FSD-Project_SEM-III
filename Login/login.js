@@ -57,10 +57,10 @@ if (detailsForm) {
     detailsForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // This is where you'd save data to Firestore in the future
+        
         alert("Details saved! Now please login to access your map.");
         
-        // REDIRECT TO LOGIN: This removes the classes hiding the login form
+        
         window.loginActive(); 
         detailsForm.reset();
     });
