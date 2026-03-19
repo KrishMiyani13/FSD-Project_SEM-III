@@ -12,34 +12,33 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 </head>
-<body class="bg-dark text-light">
+<body>
 
-    <nav class="nav" style="background-color: brown;color: white; font-weight: bold;">
+    <nav class="nav" style="background-color: lightskyblue;color: black;border: 1px black solid; font-weight: bold;">
         <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
-            <a href="#" class="text-white text-decoration-none d-flex align-items-center gap-2">
-                <i data-lucide="map" class="lucide-lg"></i>
+            <a href="#" class="text-dark text-decoration-none d-flex align-items-center gap-2">
+               <i class="fa-solid fa-map fa-lg"></i>
                 <span class="fs-5 fw-bold">Memory Map</span>
             </a>
 
-            <div class="d-flex flex-grow-1 justify-content-center align-items-center gap-3 mx-4" style="max-width: 600px;">
+           <div class="d-flex flex-grow-1 justify-content-center align-items-center gap-3 mx-4" style="max-width: 600px;">
             <form id="navSearchForm" class="d-flex w-100" style="max-width: 400px;">
-    <div class="input-group">
-        <input id="navSearchInput" class="form-control rounded-start-pill border-0" type="search" placeholder="Search cities or states..." aria-label="Search">
-        <button class="btn btn-light rounded-end-pill border-0" type="submit">
-            <i data-lucide="search" class="size-sm"></i>
-        </button>
-    </div>
-</form>
+                <div class="input-group">
+                    <input id="navSearchInput" class="form-control rounded-start-pill border-0" type="search" placeholder="Search cities or states..." aria-label="Search">
+                    <button class="btn btn-light rounded-end-pill border-0" type="submit">
+                    <i data-lucide="search" class="size-sm"></i></button>
+                </div>
+            </form>
             
-            <button id="navAddMemoryBtn" class="btn btn-light fw-bold px-3 rounded-pill d-flex align-items-center gap-1" style="color: brown; white-space: nowrap;">
+            <button id="navAddMemoryBtn" class="btn btn-light fw-bold px-3 rounded-pill d-flex align-items-center gap-1" style="color: black;border: 2px black solid; white-space: nowrap;">
                 <i data-lucide="plus" class="size-sm"></i> Add Memory
             </button>
         </div>
             
             
             <div class="d-flex align-items-center gap-4">
-                <a href="about.html" class="text-white text-decoration-none">About</a>
-                <button id="logoutBtn" class="btn btn-sm btn-light fw-bold px-3 rounded-pill">Logout</button>
+                <a href="about.html" class="text-dark text-decoration-none">About</a>
+                <button id="logoutBtn" class="btn btn-sm btn-light fw-bold px-3 rounded-pill" style="border: 2px black solid;"><a href="../Login/login.html" class="text-dark text-decoration-none">Logout</a></button>
             </div>
         </div>
     </nav>
@@ -47,16 +46,16 @@
     <div id="map"></div>
     
     
-    <button id="centerBtn" class="btn rounded-pill shadow-lg floating-btn" style="background-color: brown;color: white; font-weight: bold;">
+    <button id="centerBtn" class="btn rounded-pill shadow-lg floating-btn" style="background-color: lightblue;color: rgb(0, 0, 0); font-weight: bold; border: 2px black solid;">
         <i data-lucide="navigation" class="me-2"></i>My Location
     </button>
-    <button class="btn floating-btn1" type="button" data-bs-toggle="offcanvas"  data-bs-target="#stateOffcanvas" style="background-color: brown; color: white; font-weight: bold;">
+    <button class="btn floating-btn1" type="button" data-bs-toggle="offcanvas"  data-bs-target="#stateOffcanvas" style="background-color: lightblue; color: black; font-weight: bold;border: 2px black solid;">
   Explore States & Cities
 </button>
     <div class="modal fade" id="memoryModal" tabindex="-1" aria-hidden="true" >
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content border-0 overflow-hidden">
-                <div class="modal-header text-white border-0 flex-column align-items-start p-4" style="background-color: brown;color: white; font-weight: bold;">
+                <div class="modal-header text-white border-0 flex-column align-items-start p-4" style="background-color: lightblue;color: black; font-weight: bold;">
                     <div class="d-flex w-full justify-content-between align-items-center w-100 mb-2">
                         <button type="button" id="backBtn" class="btn btn-link text-white p-0 d-none">
                             <i data-lucide="arrow-left"></i>
